@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="LVB-YS-i5n">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <scenes>
+        <!--Bird Game View Controller-->
+        <scene sceneID="CtS-rA-C9T">
+            <objects>
+                <viewController id="LVB-YS-i5n" customClass="XLBirdGameViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TvN-0d-DFh"/>
+                        <viewControllerLayoutGuide type="bottom" id="aVg-JY-jeM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bdc-N1-crn" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9999" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ogL-1G-7Wn">
+                                <rect key="frame" x="50" y="170" width="87" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="36"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zS1-ZW-Tre" userLabel="getReadyView">
+                                <rect key="frame" x="95" y="210" width="130" height="148"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="getReady" translatesAutoresizingMaskIntoConstraints="NO" id="wow-8T-tom">
+                                        <rect key="frame" x="0.0" y="0.0" width="130" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="taptapToStart" translatesAutoresizingMaskIntoConstraints="NO" id="OpG-ga-zTd">
+                                        <rect key="frame" x="5" y="48" width="120" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="wow-8T-tom" firstAttribute="leading" secondItem="zS1-ZW-Tre" secondAttribute="leading" id="1WQ-Gi-bbD"/>
+                                    <constraint firstItem="OpG-ga-zTd" firstAttribute="top" secondItem="wow-8T-tom" secondAttribute="bottom" constant="8" symbolic="YES" id="7Pg-3N-Mwi"/>
+                                    <constraint firstItem="wow-8T-tom" firstAttribute="top" secondItem="zS1-ZW-Tre" secondAttribute="top" id="FkP-mg-HEJ"/>
+                                    <constraint firstItem="wow-8T-tom" firstAttribute="centerX" secondItem="OpG-ga-zTd" secondAttribute="centerX" id="WaY-C0-vas"/>
+                                    <constraint firstAttribute="bottom" secondItem="OpG-ga-zTd" secondAttribute="bottom" id="uIP-mh-uK9"/>
+                                    <constraint firstAttribute="trailing" secondItem="wow-8T-tom" secondAttribute="trailing" id="yuU-0Q-i2n"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A8e-Kn-SQe">
+                                <rect key="frame" x="44" y="203" width="232" height="162"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gameOver" translatesAutoresizingMaskIntoConstraints="NO" id="qxZ-jF-pOn">
+                                        <rect key="frame" x="18" y="0.0" width="198" height="38"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="medalPlate" translatesAutoresizingMaskIntoConstraints="NO" id="u1e-e2-qgi">
+                                        <rect key="frame" x="4" y="46" width="226" height="116"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="medalBronze" translatesAutoresizingMaskIntoConstraints="NO" id="9ce-CL-Eel">
+                                        <rect key="frame" x="29" y="89" width="44" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="9999" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRZ-SX-1gO">
+                                        <rect key="frame" x="81" y="78" width="129" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="9999" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GOS-u7-ccv">
+                                        <rect key="frame" x="81" y="120" width="129" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="qxZ-jF-pOn" secondAttribute="trailing" constant="16" id="1Rh-4a-0Zl"/>
+                                    <constraint firstItem="9ce-CL-Eel" firstAttribute="centerX" secondItem="u1e-e2-qgi" secondAttribute="centerX" constant="-66" id="Nru-fT-ugz"/>
+                                    <constraint firstItem="qxZ-jF-pOn" firstAttribute="top" secondItem="A8e-Kn-SQe" secondAttribute="top" id="PNw-Fe-15e"/>
+                                    <constraint firstItem="qxZ-jF-pOn" firstAttribute="centerX" secondItem="u1e-e2-qgi" secondAttribute="centerX" constant="0.5" id="U3a-2Y-Vsj"/>
+                                    <constraint firstAttribute="bottom" secondItem="9ce-CL-Eel" secondAttribute="bottom" constant="29" id="ZaE-SL-OE3"/>
+                                    <constraint firstItem="qxZ-jF-pOn" firstAttribute="leading" secondItem="A8e-Kn-SQe" secondAttribute="leading" constant="18" id="lz3-Gb-vnK"/>
+                                    <constraint firstItem="9ce-CL-Eel" firstAttribute="top" secondItem="u1e-e2-qgi" secondAttribute="bottom" constant="-73" id="mtr-r5-MVw"/>
+                                    <constraint firstItem="u1e-e2-qgi" firstAttribute="top" secondItem="qxZ-jF-pOn" secondAttribute="bottom" constant="8" id="zMQ-Ni-Pja"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="kaizei仿制" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xTw-bn-e3a">
+                                <rect key="frame" x="0.0" y="551" width="65" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ogL-1G-7Wn" firstAttribute="top" secondItem="TvN-0d-DFh" secondAttribute="bottom" constant="170" id="CCN-Cd-qgq"/>
+                            <constraint firstItem="zS1-ZW-Tre" firstAttribute="centerY" secondItem="bdc-N1-crn" secondAttribute="centerY" id="DnO-Mk-JaI"/>
+                            <constraint firstItem="xTw-bn-e3a" firstAttribute="leading" secondItem="bdc-N1-crn" secondAttribute="leading" id="Iqx-yB-3Gs"/>
+                            <constraint firstAttribute="centerX" secondItem="A8e-Kn-SQe" secondAttribute="centerX" id="RoR-wn-xxg"/>
+                            <constraint firstItem="ogL-1G-7Wn" firstAttribute="leading" secondItem="bdc-N1-crn" secondAttribute="leading" constant="50" id="Y8G-3V-j3X"/>
+                            <constraint firstItem="zS1-ZW-Tre" firstAttribute="centerX" secondItem="bdc-N1-crn" secondAttribute="centerX" id="bWf-22-cCl"/>
+                            <constraint firstAttribute="centerY" secondItem="A8e-Kn-SQe" secondAttribute="centerY" id="drG-lM-ona"/>
+                            <constraint firstItem="aVg-JY-jeM" firstAttribute="top" secondItem="xTw-bn-e3a" secondAttribute="bottom" id="txU-sj-rlk"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bestScoreLabel" destination="GOS-u7-ccv" id="BtU-eM-9Ya"/>
+                        <outlet property="currentScoreLabel" destination="ogL-1G-7Wn" id="uCT-Wt-0e7"/>
+                        <outlet property="finalScoreLabel" destination="sRZ-SX-1gO" id="I3U-gh-uAe"/>
+                        <outlet property="gameOverView" destination="A8e-Kn-SQe" id="0iw-qi-lg2"/>
+                        <outlet property="getReadyView" destination="zS1-ZW-Tre" id="N8F-Ju-X3Q"/>
+                        <outlet property="medalImageView" destination="9ce-CL-Eel" id="6HT-0O-vXD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="btX-cZ-eVz" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="90" y="13"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="gameOver" width="198" height="38"/>
+        <image name="getReady" width="130" height="40"/>
+        <image name="medalBronze" width="44" height="44"/>
+        <image name="medalPlate" width="226" height="116"/>
+        <image name="taptapToStart" width="120" height="100"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <nil key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
