@@ -92,8 +92,8 @@
     long randomPositionY = random() % (long)(self.size.height - 4 * kXLFloorHeight - kXLPipeGapHeight) + 2 * kXLFloorHeight;
     
     CGFloat totalMoveDistance = self.size.width + kXLPipeWidth;
-    SKAction *moveStep1 = [SKAction moveByX:-totalMoveDistance y:0 duration:totalMoveDistance / kXLFloorScrollingSpeed];
-    SKAction *pipeAction = [SKAction sequence:@[moveStep1, [SKAction removeFromParent]]];
+    SKAction *move = [SKAction moveByX:-totalMoveDistance y:0 duration:totalMoveDistance / kXLFloorScrollingSpeed];
+    SKAction *pipeAction = [SKAction sequence:@[move, [SKAction removeFromParent]]];
     
     SKSpriteNode *bottomPipe = [SKSpriteNode spriteNodeWithImageNamed:@"pipeBottom"];
     bottomPipe.anchorPoint = CGPointMake(0, 1);
