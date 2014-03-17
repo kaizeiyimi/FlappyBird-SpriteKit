@@ -13,7 +13,7 @@
 
 @interface XLGameScene () <SKPhysicsContactDelegate>
 
-@property (atomic, assign) BOOL gameStarted;
+@property (nonatomic, assign) BOOL gameStarted;
 @property (nonatomic, weak) XLBirdNode *bird;
 @property (nonatomic, weak) XLHorizontalScrollingLeftNode *floor;
 @property (nonatomic, weak) XLHorizontalScrollingLeftNode *background;
@@ -70,20 +70,31 @@
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     if (!self.gameStarted) {
         self.gameStarted = YES;
-        [self.bird setReady];
-        [self.delegate gameSceneGameStarted:self];
     }
     [self.bird flap];
 }
 
--(void)update:(CFTimeInterval)currentTime {
-    if (self.gameStarted) {
-        if (self.lastPipeGenerationTime == 0.0) {
-            self.lastPipeGenerationTime = currentTime;
-        } else if (currentTime - self.lastPipeGenerationTime >= kXLPipeGenerationTimeInterval) {
-            self.lastPipeGenerationTime = currentTime;
-            [self generatePipes];
+- (void)setGameStarted:(BOOL)gameStarted
+{
+    if (_gameStarted == gameStarted) {
+        return;
+    }
+    _gameStarted = gameStarted;
+    if (gameStarted) {
+        [self.bird setReady];
+        SKAction *wait = [SKAction waitForDuration:kXLPipeGenerationTimeInterval];
+        SKAction *generate = [SKAction runBlock:^{[self generatePipes];}];
+        [self runAction:[SKAction repeatActionForever:[SKAction sequence:@[wait,generate]]]];
+        [self.delegate gameSceneGameStarted:self];
+    } else {
+        self.userInteractionEnabled = NO;
+        [self.background setScrollingEnabled:NO];
+        [self.floor setScrollingEnabled:NO];
+        for (SKNode *pipe in self.pipes) {
+            [pipe removeAllActions];
         }
+        [self removeAllActions];
+        [self.delegate gameSceneGameEnded:self];
     }
 }
 
@@ -127,13 +138,6 @@
 {
     if (self.gameStarted) {
         self.gameStarted = NO;
-        self.userInteractionEnabled = NO;
-        [self.background setScrollingEnabled:NO];
-        [self.floor setScrollingEnabled:NO];
-        for (SKNode *pipe in self.pipes) {
-            [pipe removeAllActions];
-        }
-        [self.delegate gameSceneGameEnded:self];
     }
 }
 

@@ -17,6 +17,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *finalScoreLabel;
 @property (nonatomic, weak) IBOutlet UILabel *bestScoreLabel;
 @property (nonatomic, weak) IBOutlet UIImageView *medalImageView;
+@property (nonatomic, weak) IBOutlet UILabel *kaizeiLogoLabel;
 
 @end
 
@@ -41,6 +42,7 @@
     self.currentScoreLabel.hidden = YES;
     self.gameOverView.hidden = YES;
     self.getReadyView.hidden = NO;
+    self.kaizeiLogoLabel.userInteractionEnabled = NO;
     XLGameScene * scene = [XLGameScene sceneWithSize:skView.bounds.size];
     scene.scaleMode = SKSceneScaleModeAspectFit;
     scene.delegate = self;
@@ -64,6 +66,7 @@
     } completion:^(BOOL finished) {
         self.getReadyView.alpha = 1.0;
         self.getReadyView.hidden = YES;
+        self.kaizeiLogoLabel.userInteractionEnabled = YES;
     }];
 }
 
@@ -78,6 +81,7 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         self.view.userInteractionEnabled = YES;
     });
+    self.kaizeiLogoLabel.userInteractionEnabled = NO;
     self.currentScoreLabel.hidden = YES;
     //显示gameover
     self.gameOverView.hidden = NO;
@@ -111,6 +115,12 @@
 {
     [self.view removeGestureRecognizer:gesture];
     [self reset];
+}
+
+- (IBAction)didTapOnPauseLabel:(id)sender
+{
+    SKView *skView = (SKView *)self.view;
+    skView.scene.paused = !skView.scene.paused;
 }
 
 #pragma mark - score related

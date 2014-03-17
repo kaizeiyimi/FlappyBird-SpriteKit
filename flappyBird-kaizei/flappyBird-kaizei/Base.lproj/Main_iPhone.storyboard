@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="LVB-YS-i5n">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="LVB-YS-i5n">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Bird Game View Controller-->
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9999" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ogL-1G-7Wn">
-                                <rect key="frame" x="50" y="170" width="87" height="46"/>
+                                <rect key="frame" x="10" y="10" width="87" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="36"/>
                                 <nil key="highlightedColor"/>
@@ -86,21 +86,25 @@
                                     <constraint firstItem="u1e-e2-qgi" firstAttribute="top" secondItem="qxZ-jF-pOn" secondAttribute="bottom" constant="8" id="zMQ-Ni-Pja"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="kaizei仿制" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xTw-bn-e3a">
-                                <rect key="frame" x="0.0" y="551" width="65" height="17"/>
+                            <label opaque="NO" clipsSubviews="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="kaizei仿制,点我pause" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xTw-bn-e3a">
+                                <rect key="frame" x="0.0" y="551" width="136" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="cAa-vV-Vzy" appends="YES" id="Lu0-pW-uv1"/>
+                                </connections>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ogL-1G-7Wn" firstAttribute="top" secondItem="TvN-0d-DFh" secondAttribute="bottom" constant="170" id="CCN-Cd-qgq"/>
+                            <constraint firstItem="ogL-1G-7Wn" firstAttribute="top" secondItem="TvN-0d-DFh" secondAttribute="bottom" constant="10" id="CCN-Cd-qgq"/>
                             <constraint firstItem="zS1-ZW-Tre" firstAttribute="centerY" secondItem="bdc-N1-crn" secondAttribute="centerY" id="DnO-Mk-JaI"/>
                             <constraint firstItem="xTw-bn-e3a" firstAttribute="leading" secondItem="bdc-N1-crn" secondAttribute="leading" id="Iqx-yB-3Gs"/>
                             <constraint firstAttribute="centerX" secondItem="A8e-Kn-SQe" secondAttribute="centerX" id="RoR-wn-xxg"/>
-                            <constraint firstItem="ogL-1G-7Wn" firstAttribute="leading" secondItem="bdc-N1-crn" secondAttribute="leading" constant="50" id="Y8G-3V-j3X"/>
+                            <constraint firstItem="ogL-1G-7Wn" firstAttribute="leading" secondItem="bdc-N1-crn" secondAttribute="leading" constant="10" id="Y8G-3V-j3X"/>
                             <constraint firstItem="zS1-ZW-Tre" firstAttribute="centerX" secondItem="bdc-N1-crn" secondAttribute="centerX" id="bWf-22-cCl"/>
                             <constraint firstAttribute="centerY" secondItem="A8e-Kn-SQe" secondAttribute="centerY" id="drG-lM-ona"/>
                             <constraint firstItem="aVg-JY-jeM" firstAttribute="top" secondItem="xTw-bn-e3a" secondAttribute="bottom" id="txU-sj-rlk"/>
@@ -112,10 +116,16 @@
                         <outlet property="finalScoreLabel" destination="sRZ-SX-1gO" id="I3U-gh-uAe"/>
                         <outlet property="gameOverView" destination="A8e-Kn-SQe" id="0iw-qi-lg2"/>
                         <outlet property="getReadyView" destination="zS1-ZW-Tre" id="N8F-Ju-X3Q"/>
+                        <outlet property="kaizeiLogoLabel" destination="xTw-bn-e3a" id="etN-So-pwn"/>
                         <outlet property="medalImageView" destination="9ce-CL-Eel" id="6HT-0O-vXD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btX-cZ-eVz" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="cAa-vV-Vzy">
+                    <connections>
+                        <action selector="didTapOnPauseLabel:" destination="LVB-YS-i5n" id="EU1-pc-diH"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="90" y="13"/>
         </scene>
