@@ -42,9 +42,13 @@ static NSString * const kXLBirdFlyingForeverActionKey = @"kXLBirdFlyingForeverAc
 - (void)setReady
 {
     [self removeAllActions];
-    self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(26, 18)];
+    self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(30, 20)];
     self.physicsBody.categoryBitMask = kXLBirdBitMask;
     self.physicsBody.mass = 0.1;
+    SKAction *rotation = [SKAction runBlock:^{
+        self.zRotation = M_PI * self.physicsBody.velocity.dy * 0.0003;
+    }];
+    [self runAction:[SKAction repeatActionForever:[SKAction sequence:@[[SKAction waitForDuration:1.0/60], rotation]]]];
 }
 
 - (void)flap
